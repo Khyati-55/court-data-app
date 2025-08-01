@@ -1,10 +1,10 @@
-# 🏛️ Court Data Fetcher & Dashboard
+# Court Data Fetcher & Dashboard
 
 This is a mini web app that simulates the process of fetching and displaying court case data based on user input. It was built as part of the Think Act Rise Foundation internship assessment.
 
 ---
 
-## 📍 Court Chosen
+##  Court Chosen
 
 I selected the **eCourts Services Portal**  
 🔗 https://services.ecourts.gov.in/ecourtindia_v6/
@@ -21,7 +21,7 @@ Hence, I have:
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - Python 3
 - Flask (Web framework)
@@ -31,7 +31,7 @@ Hence, I have:
 
 ---
 
-## 🚀 Features
+##  Features
 
 - Input form: Case Type, Case Number, Filing Year
 - Simulated court data fetching
@@ -44,7 +44,7 @@ Hence, I have:
 
 ---
 
-## 🧪 How to Run Locally
+##  How to Run Locally
 
 ### 1. Clone the repo
 
