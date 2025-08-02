@@ -1,26 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Search Court Case</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
+    <!-- Page heading -->
     <h2 class="heading">Search Court Case</h2>
 
+    <!-- Form -->
     <form method="POST">
         <label for="case_type">Case Type:</label>
-        <input type="text" name="case_type" required>
+        <input type="text" name="case_type" id="case_type" required>
 
         <label for="case_number">Case Number:</label>
-        <input type="text" name="case_number" required>
+        <input type="text" name="case_number" id="case_number" required>
 
         <label for="year">Filing Year:</label>
-        <input type="text" name="year" required>
+        <input type="text" name="year" id="year" required>
 
         <button type="submit">Search</button>
     </form>
 
+    <!-- Display result if data is returned -->
     {% if data %}
     <div class="result-box">
         <h3>Result:</h3>
@@ -29,6 +33,11 @@
         <p><strong>Next Hearing:</strong> {{ data['next_hearing'] }}</p>
         <p><strong>PDF Link:</strong> 
             <a href="{{ data['latest_pdf'] }}" target="_blank">{{ data['latest_pdf'] }}</a>
+        </p>
+
+        <!-- Disclaimer note -->
+        <p style="font-size: 12px; color: #666; text-align: center; margin-top: 10px;">
+            *Note: This is simulated data for demo purposes.
         </p>
     </div>
     {% endif %}
