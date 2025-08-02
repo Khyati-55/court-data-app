@@ -1,34 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <meta charset="UTF-8">
-  <title>Court Data Fetcher</title>
+    <title>Search Court Case</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <h2>Search Court Case</h2>
-  <form method="post">
-    <label>Case Type:</label>
-    <input type="text" name="case_type" required><br>
-    <label>Case Number:</label>
-    <input type="text" name="case_number" required><br>
-    <label>Filing Year:</label>
-    <input type="text" name="year" required><br>
-    <button type="submit">Search</button>
-  </form>
 
-  {% if data %}
-    <h3>Result:</h3>
-    <p><strong>Parties:</strong> {{ data['parties'] }}</p>
-    <p><strong>Filing Date:</strong> {{ data['filing_date'] }}</p>
-    <p><strong>Next Hearing:</strong> {{ data['next_hearing'] }}</p>
-    <p><strong>PDF Link:</strong> <a href="{{ data['latest_pdf'] }}" target="_blank">{{ data['latest_pdf'] }}</a></p>
-  {% endif %}
+    <h2 class="heading">Search Court Case</h2>
 
-  {% with messages = get_flashed_messages(with_categories=true) %}
-    {% for category, message in messages %}
-      <div>{{ message }}</div>
-    {% endfor %}
-  {% endwith %}
+    <form method="POST">
+        <label for="case_type">Case Type:</label>
+        <input type="text" name="case_type" required>
+
+        <label for="case_number">Case Number:</label>
+        <input type="text" name="case_number" required>
+
+        <label for="year">Filing Year:</label>
+        <input type="text" name="year" required>
+
+        <button type="submit">Search</button>
+    </form>
+
+    {% if data %}
+    <div class="result-box">
+        <h3>Result:</h3>
+        <p><strong>Parties:</strong> {{ data['parties'] }}</p>
+        <p><strong>Filing Date:</strong> {{ data['filing_date'] }}</p>
+        <p><strong>Next Hearing:</strong> {{ data['next_hearing'] }}</p>
+        <p><strong>PDF Link:</strong> 
+            <a href="{{ data['latest_pdf'] }}" target="_blank">{{ data['latest_pdf'] }}</a>
+        </p>
+    </div>
+    {% endif %}
+
 </body>
 </html>
